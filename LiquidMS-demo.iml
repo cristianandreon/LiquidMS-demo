@@ -8,5 +8,8 @@
     <orderEntry type="jdk" jdkName="corretto-11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Liquid-servlet3" level="application" />
+    <orderEntry type="library" name="LiquidMS" level="application" />
+    <orderEntry type="module" module-name="Liquid" />
+    <orderEntry type="module" module-name="LiquidMS" />
   </component>
 </module>
