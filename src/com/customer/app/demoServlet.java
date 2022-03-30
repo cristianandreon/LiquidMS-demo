@@ -49,11 +49,13 @@ public class demoServlet implements Servlet {
         //
         result += ",\"Settings\":[";
         ArrayList<Object> beans = bean.load_beans("liquidx.settings", "prop, value", "1=1");
-        for (int i = 0; i < beans.size(); i++) {
-            String prop = (String)utility.getEx( beans.get(i), "prop");
-            Object value = utility.getEx( beans.get(i), "value");
-            result += i > 0 ? "," : "";
-            result += "{\""+prop+"\":\""+value+"\"}";
+        if(beans != null) {
+            for (int i = 0; i < beans.size(); i++) {
+                String prop = (String) utility.getEx(beans.get(i), "prop");
+                Object value = utility.getEx(beans.get(i), "value");
+                result += i > 0 ? "," : "";
+                result += "{\"" + prop + "\":\"" + value + "\"}";
+            }
         }
         result += "]";
 
