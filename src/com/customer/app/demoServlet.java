@@ -17,19 +17,11 @@ import java.util.ArrayList;
 
 public class demoServlet implements Servlet {
 
-    private static String HEAVY_RESOURCE = "Welcome in Liquid MicroService ver."+ LiquidMS.version;
+    private static String SETUP_STRING = "Welcome in Liquid MicroService ver."+ LiquidMS.version;
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         System.out.println("init");
-        //
-        // Create pooled connection
-        //
-        try {
-            com.liquid.connection.addLiquidDBConnection("postgres", null, null, "LiquidX", "liquid", "liquid", true);
-        } catch (Throwable e) {
-            System.err.println("Connection error:"+e.getMessage());
-        }
     }
 
     @Override
@@ -40,7 +32,7 @@ public class demoServlet implements Servlet {
     @Override
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
         String result = "{";
-        result += "\"header\":\""+HEAVY_RESOURCE+"\"";
+        result += "\"header\":\""+SETUP_STRING+"\"";
 
         System.out.println("service");
 
@@ -57,13 +49,15 @@ public class demoServlet implements Servlet {
                 result += "{\"" + prop + "\":\"" + value + "\"}";
             }
         }
-        result += "]";
-
-        result += "}";
+        result += "]}";
 
 
+
+
+        //
+        // Write long response
+        //
         ByteBuffer content = ByteBuffer.wrap(result.getBytes(StandardCharsets.UTF_8));
-
         AsyncContext async = request.startAsync();
         ServletOutputStream out = response.getOutputStream();
         out.setWriteListener(new WriteListener() {
