@@ -15,7 +15,10 @@ public class Main {
             LiquidMS.addServlet(demoServlet.class, "/status");
 
             // Register periodic event forever with no start delay
-            LiquidMS.addEvent("cycleDemo", "com.customer.app.demoServlet", "cycle_demo", 0, 3000, 0);
+            LiquidMS.addEvent("slowCycleDemo", "com.customer.app.demoServlet", "slow_cycle_demo", 0, 5000, 0);
+
+            // Register periodic event forever with no start delay
+            LiquidMS.addEvent("fastCycleDemo", "com.customer.app.demoServlet", "fast_cycle_demo", 0, 1000, 0);
 
             // Run service
             LiquidMS.run(args);
@@ -23,7 +26,5 @@ public class Main {
         } catch (Throwable e) {
             System.err.println("Connection error:"+e.getMessage());
         }
-
     }
-
 }

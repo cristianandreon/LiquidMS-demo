@@ -92,7 +92,10 @@ public class demoServlet implements Servlet {
         System.out.println("destroy");
     }
 
-    public void cycle_demo(Object looperObj) {
+    public void fast_cycle_demo(Object looperObj) {
         System.out.print(".");
+    }
+    public void slow_cycle_demo(Object looperObj) {
+        System.out.print("o");
     }
 }
