@@ -2,12 +2,13 @@
   <artifact type="jar" name="LiquidMS-demo:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/LiquidMS_demo_jar</output-path>
     <root id="archive" name="LiquidMS-demo_jar.jar">
-      <element id="archive" name="LiquidMS-demo.jar">
-        <element id="module-output" name="LiquidMS-demo" />
-      </element>
       <element id="module-output" name="Liquid" />
       <element id="library" level="application" name="Liquid-servlet3" />
       <element id="module-output" name="LiquidMS" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="LiquidMS-demo" />
     </root>
   </artifact>
 </component>
