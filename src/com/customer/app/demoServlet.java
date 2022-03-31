@@ -91,4 +91,8 @@ public class demoServlet implements Servlet {
     public void destroy() {
         System.out.println("destroy");
     }
+
+    public void cycle_demo(Object looperObj) {
+        System.out.print(".");
+    }
 }

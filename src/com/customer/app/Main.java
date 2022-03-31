@@ -14,6 +14,9 @@ public class Main {
             // Register servlet
             LiquidMS.addServlet(demoServlet.class, "/status");
 
+            // Register periodic event forever with no start delay
+            LiquidMS.addEvent("cycleDemo", "com.customer.app.demoServlet", "cycle_demo", 0, 3000, 0);
+
             // Run service
             LiquidMS.run(args);
 
