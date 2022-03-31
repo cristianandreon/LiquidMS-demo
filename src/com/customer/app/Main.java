@@ -20,11 +20,11 @@ public class Main {
             // Register periodic event forever with no start delay
             LiquidMS.addEvent("fastCycleDemo", "com.customer.app.demoServlet", "fast_cycle_demo", 0, 1000, 0);
 
-            // Run service
+            // Run services
             LiquidMS.run(args);
 
         } catch (Throwable e) {
-            System.err.println("Connection error:"+e.getMessage());
+            System.err.println("Error:"+e.getMessage());
         }
     }
 }

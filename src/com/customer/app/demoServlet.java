@@ -93,9 +93,9 @@ public class demoServlet implements Servlet {
     }
 
     public void fast_cycle_demo(Object looperObj) {
-        System.out.print(".");
+        System.err.print(".");
     }
     public void slow_cycle_demo(Object looperObj) {
-        System.out.print("o");
+        System.err.print("o");
     }
 }
