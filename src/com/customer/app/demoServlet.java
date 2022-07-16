@@ -40,14 +40,19 @@ public class demoServlet implements Servlet {
         // Read DB using Liquid
         //
         result += ",\"Settings\":[";
-        ArrayList<Object> beans = bean.load_beans("liquidx.settings", "prop, value", "1=1");
-        if(beans != null) {
-            for (int i = 0; i < beans.size(); i++) {
-                String prop = (String) utility.getEx(beans.get(i), "prop");
-                Object value = utility.getEx(beans.get(i), "value");
-                result += i > 0 ? "," : "";
-                result += "{\"" + prop + "\":\"" + value + "\"}";
+        ArrayList<Object> beans = null;
+        try {
+            beans = bean.load_beans("liquidx.settings", "prop, value", "1=1");
+            if(beans != null) {
+                for (int i = 0; i < beans.size(); i++) {
+                    String prop = (String) utility.getEx(beans.get(i), "prop");
+                    Object value = utility.getEx(beans.get(i), "value");
+                    result += i > 0 ? "," : "";
+                    result += "{\"" + prop + "\":\"" + value + "\"}";
+                }
             }
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
         }
         result += "]}";
 
