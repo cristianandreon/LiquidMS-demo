@@ -52,7 +52,7 @@ public class demoServlet implements Servlet {
                 }
             }
         } catch (Throwable e) {
-            throw new RuntimeException(e);
+            result += "\"Internal error:"+e.getMessage()+"\"";
         }
         result += "]}";
 
