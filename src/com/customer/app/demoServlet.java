@@ -1,18 +1,14 @@
 package com.customer.app;
 
+import com.liquid.bean;
+import com.liquid.utility;
 import com.liquidms.LiquidMS;
-import com.liquid.*;
 
 import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class demoServlet implements Servlet {
